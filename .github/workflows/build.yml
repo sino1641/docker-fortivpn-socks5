@@ -1,11 +1,12 @@
 name: Build
 on:
-  push:
+  - push:
     branches:
       - master
-  pull_request:
+  - pull_request:
     branches:
       - master
+  - workflow_dispatch
 
 env:
   IMAGE_NAME: sino1641/fortivpn-socks5
