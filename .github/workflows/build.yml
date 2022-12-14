@@ -6,7 +6,7 @@ on:
   - pull_request:
     branches:
       - master
-  - workflow_dispatch
+on: workflow_dispatch
 
 env:
   IMAGE_NAME: sino1641/fortivpn-socks5
