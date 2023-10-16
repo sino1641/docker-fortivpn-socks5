@@ -24,7 +24,7 @@ NOTE: I only tested this image on Linux-based systems. It might not be working o
         --cap-add=NET_ADMIN \
         --device=/dev/ppp \
         --rm \
-        -v /path/to/config:/etc/openfortivpn/config \
+        -v /path/to/config:/etc/openfortivpn/config.edit:ro \
         -e TOKEN=TOTP \
         -e HEALTH_DOMAIN=https://example.com \
         ghcr.io/tosainu/fortivpn-socks5:master
