@@ -10,4 +10,4 @@ else
   sed -i '$ s/otp=[0-9]\{6\}/otp='"$(oathtool -s 60 --totp $TOKEN)"'/' /etc/openfortivpn/config
 fi
 cat /etc/openfortivpn/config 
-#exec "$@"
+exec "$@"
