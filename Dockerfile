@@ -24,7 +24,6 @@ RUN \
   mv feature.go.tmp feature.go && \
   go build -v -ldflags "-s -w"
 COPY entrypoint.sh /usr/bin/
-COPY start.sh /usr/bin/
 
 FROM alpine:3.17.0
 RUN apk add --no-cache curl openssl ppp oath-toolkit-oathtool
@@ -34,4 +33,3 @@ ENV HEALTH_DOMAIN example.com
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 CMD curl --fail $HEALTH_DOMAIN || exit 1
 ENTRYPOINT ["/usr/bin/entrypoint.sh"]
 EXPOSE 8443/tcp
-CMD ["/usr/bin/start.sh"]
