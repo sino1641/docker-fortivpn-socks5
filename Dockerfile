@@ -30,7 +30,7 @@ RUN apk add --no-cache curl openssl ppp oath-toolkit-oathtool
 COPY --from=builder /usr/bin/openfortivpn /go/src/github.com/nadoo/glider/glider /usr/bin/entrypoint.sh /usr/bin/
 ENV TOKEN TOTP
 ENV HEALTH_DOMAIN example.com
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 CMD curl --fail $HEALTH_DOMAIN || exit 1
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 CMD curl --fail $HEALTH_DOMAIN || kill -s 9 -1
 ENTRYPOINT ["/usr/bin/entrypoint.sh"]
 EXPOSE 8443/tcp
 CMD ["openfortivpn"]
