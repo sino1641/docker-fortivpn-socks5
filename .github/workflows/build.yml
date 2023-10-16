@@ -27,7 +27,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: name/app
+          images: sino1641/fortivpn-socks5
           tags: |
             type=raw,value={{date 'YYYYMMDDHHmmss'}}
       - name: Build
