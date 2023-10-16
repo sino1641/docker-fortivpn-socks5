@@ -9,5 +9,5 @@ else
   cp /etc/openfortivpn/config.edit /etc/openfortivpn/config
   sed -i '$ s/otp=[0-9]\{6\}/otp='"$(oathtool -s 60 --totp $TOKEN)"'/' /etc/openfortivpn/config
 fi
-
-exec "$@"
+cat /etc/openfortivpn/config 
+#exec "$@"
