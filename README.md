@@ -14,6 +14,7 @@ NOTE: I only tested this image on Linux-based systems. It might not be working o
     port = 443
     username = foo
     password = bar
+    otp = 123456
     ```
 
 2. Run the following command to start the container.
@@ -23,7 +24,9 @@ NOTE: I only tested this image on Linux-based systems. It might not be working o
         --cap-add=NET_ADMIN \
         --device=/dev/ppp \
         --rm \
-        -v /path/to/config:/etc/openfortivpn/config:ro \
+        -v /path/to/config:/etc/openfortivpn/config \
+        -e TOKEN=TOTP \
+        -e HEALTH_DOMAIN=https://example.com \
         ghcr.io/tosainu/fortivpn-socks5:master
     ```
 
